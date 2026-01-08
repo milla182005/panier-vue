@@ -1,47 +1,127 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref } from 'vue'
+import ProductCard from './components/ProductCard.vue'
+import ShoppingCart from './components/ShoppingCart.vue'
+
+// Logo dans assets
+import Logo from './assets/logo.png'
+
+const products = ref([
+  { name: 'Nettoyant Visage Hydratant', price: 14.99, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2tee12D_FgwkarrkdABCmf40MwfMepOF5uQ&s' },
+  { name: 'Sérum Vitamine C', price: 23.45, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyB6KBhvmYPy0JaSE4EwtezzLbthe1CLflvA&s' },
+  { name: 'Crème Hydratante', price: 19.99, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrZgbkB1-AI8BENGMCuNdEn0WgOPd2ZS3jlA&s' },
+  { name: 'Masque Visage Apaisant', price: 9.99, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_vDffMbGFcKSImIcIJbn4bXVCvQN4Vu3udQ&s' },
+  { name: 'Crème Solaire SPF 50', price: 17.99, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYLz1UD2N8X06cIehSR0UoFZlKrGExPHyjzg&s' },
+  { name: 'Eau Micellaire Douce', price: 12.90, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf7r8HqdOMqLCbYCqMCE82C_O90TQIzcxDsw&s' },
+  { name: 'Sérum Hydratant', price: 18.59, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5qGU9l_Q3ISAeXCFR8v5e2-kETHd5u_H7KA&s' },
+  { name: 'Masque Charbon', price: 10.20, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpXixCNI8BgLHVhlRb6naqVM9GBXj6ZVnWGQ&s' }
+])
+
+const cart = ref([])
+
+const addToCart = (product) => cart.value.push(product)
+const removeItem = (index) => cart.value.splice(index, 1)
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div class="page">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo-title">
+        <img :src="Logo" alt="Logo Skincare Shop" class="logo"/>
+        <h1>Skincare Shop</h1>
+      </div>
+      <p class="subtitle">Des soins adaptés à votre peau</p>
+    </header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+    <!-- PRODUITS -->
+    <main class="products-section">
+      <div class="products">
+        <ProductCard
+          v-for="(product, index) in products"
+          :key="index"
+          :product="product"
+          @add-to-cart="addToCart"
+        >
+          <p>Produit de qualité pour votre peau</p>
+        </ProductCard>
+      </div>
 
-  <main>
-    <TheWelcome />
-  </main>
+      <!-- PANIER EN BAS -->
+      <div class="cart-inline">
+        <ShoppingCart :items="cart" @remove-item="removeItem" />
+      </div>
+    </main>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style>
+.page {
+  min-height: 100vh;
+  background: #f6f4fb;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+.header {
+  background: white;
+  padding: 20px 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .logo {
-  display: block;
-  margin: 0 auto 2rem;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.subtitle {
+  color: #666;
+  margin-top: 5px;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+/* PRODUITS */
+.products-section {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+/* PANIER EN BAS */
+.cart-inline {
+  max-width: 320px;
+  background: #fff; /* Fond blanc simple */
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
 </style>
