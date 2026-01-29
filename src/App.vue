@@ -6,7 +6,6 @@ import ShoppingCart from './components/ShoppingCart.vue'
 // Logo dans assets
 import Logo from './assets/logo.png'
 
-
 const products = ref([
   { 
     name: 'Nettoyant Visage Hydratant',
