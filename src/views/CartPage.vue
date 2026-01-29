@@ -1,8 +1,6 @@
 <template>
   <div>
     <h1>Mon panier</h1>
-    <!-- On affichera le panier ici plus tard -->
+    <p>Le panier sera connecté plus tard (Pinia)</p>
   </div>
 </template>
-
-<script setup></script>
