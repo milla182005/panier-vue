@@ -4,7 +4,7 @@
 
     <p v-if="loading">Chargement...</p>
 
-    <div class="products">
+    <div class="products" v-else>
       <ProductCard
         v-for="product in products"
         :key="product.id"
@@ -18,30 +18,38 @@
 <script>
 import productsData from '@/data/products.json'
 import ProductCard from '@/components/ProductCard.vue'
+import { useCartStore } from '@/stores/cart'
 
 export default {
+  name: 'HomePage',
   components: { ProductCard },
+  
   data() {
     return {
-      products: [],
-      loading: true
+      products: productsData,
+      loading: false,
+      cartStore: useCartStore() // ⬅️ IMPORTANT : initialisé ici
     }
   },
-  mounted() {
-    setTimeout(() => {
-      this.products = productsData
-      this.loading = false
-    }, 500)
-  },
+  
   methods: {
     addToCart(product) {
-      console.log('Ajout panier:', product)
+      this.cartStore.addToCart(product)
+      console.log('✅ Produit ajouté au panier:', product.title)
     }
   }
 }
 </script>
 
 <style scoped>
+.home {
+  padding: 2rem;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
