@@ -4,7 +4,7 @@
     "title": "Crème hydratante visage",
     "price": 19.99,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400",
+    "image": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400",
     "description": "Hydrate la peau en profondeur avec une formule légère et non grasse."
   },
   {
@@ -12,7 +12,7 @@
     "title": "Sérum vitamine C",
     "price": 24.50,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1733151306769-68d85f8190f6?w=400",
+    "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400",
     "description": "Redonne de l'éclat au teint et combat les signes de fatigue."
   },
   {
@@ -28,7 +28,7 @@
     "title": "Nettoyant visage doux",
     "price": 12.00,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1729589488592-77f0ec25f78c?w=400",
+    "image": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400",
     "description": "Élimine les impuretés sans agresser la peau sensible."
   },
   {
@@ -52,7 +52,7 @@
     "title": "Eau micellaire",
     "price": 10.90,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1719920527244-06ee5f87655e?w=400",
+    "image": "https://images.unsplash.com/photo-1556228841-a5c5ff9b1d3e?w=400",
     "description": "Démaquille et nettoie en douceur sans rinçage."
   },
   {
@@ -76,7 +76,7 @@
     "title": "Crème solaire SPF50",
     "price": 17.90,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1720534937081-91a36ab264c6?w=400",
+    "image": "https://images.unsplash.com/photo-1526758097130-bab247274f58?w=400",
     "description": "Protège contre les UV et prévient le vieillissement cutané."
   },
   {
@@ -100,7 +100,7 @@
     "title": "Crème anti-âge",
     "price": 34.90,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1731077455337-b5f35e65bb16?w=400",
+    "image": "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400",
     "description": "Lisse les rides et raffermit la peau mature."
   },
   {
@@ -124,7 +124,7 @@
     "title": "Baume à lèvres",
     "price": 4.99,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1710061438773-ab90ce4982dc?w=400",
+    "image": "https://images.unsplash.com/photo-1586495777744-4e6232bf2f9e?w=400",
     "description": "Hydrate et protège les lèvres du dessèchement."
   },
   {
@@ -148,7 +148,7 @@
     "title": "Crème corps hydratante",
     "price": 18.90,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1556228841-a5c5ff9b1d3e?w=400",
+    "image": "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400",
     "description": "Hydratation longue durée pour une peau douce."
   },
   {

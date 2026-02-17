@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <NavBar />
-    <main class="main-content">
+    <main class="contenu">
       <router-view />
     </main>
   </div>
@@ -12,6 +12,7 @@ import NavBar from '@/components/NavBar.vue'
 </script>
 
 <style>
+/* Reset de base */
 * {
   margin: 0;
   padding: 0;
@@ -19,16 +20,14 @@ import NavBar from '@/components/NavBar.vue'
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f6f4fb;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
   color: #333;
 }
 
-#app {
-  min-height: 100vh;
-}
-
-.main-content {
-  padding: 20px;
+.contenu {
+  padding: 30px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 </style>
