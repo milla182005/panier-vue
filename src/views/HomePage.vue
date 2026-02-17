@@ -9,7 +9,10 @@
         <button @click="scrollVersListe" class="btn-principal">Voir les produits</button>
       </div>
       <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600" alt="Produits de soin" />
+        <img
+          src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&auto=format&fit=crop"
+          alt="Produits de soin"
+        />
       </div>
     </section>
 
@@ -40,9 +43,7 @@
     <!-- Liste des produits -->
     <section ref="listeRef" class="liste-produits">
       <h2>Nos produits</h2>
-
       <p v-if="chargement">Chargement...</p>
-
       <div v-else class="grille">
         <ProductCard
           v-for="produit in produits"
@@ -53,15 +54,28 @@
       </div>
     </section>
 
-    <!-- Newsletter simple -->
-    <section class="newsletter">
-      <h2>Restez informé(e)</h2>
-      <p>Inscrivez-vous pour recevoir nos offres</p>
-      <div class="newsletter-form">
-        <input type="email" placeholder="Votre email" />
-        <button>S'inscrire</button>
+    <!-- Footer simple -->
+    <footer class="footer">
+      <div class="footer-contenu">
+        <div class="footer-col">
+          <h3>SkinShop</h3>
+          <p>Des soins naturels pour révéler votre beauté.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <p>contact@skinshop.fr</p>
+          <p>+33 01 23 45 67 89</p>
+        </div>
+        <div class="footer-col">
+          <h3>Livraison</h3>
+          <p>Gratuite dès 40€</p>
+          <p>Retours sous 30 jours</p>
+        </div>
       </div>
-    </section>
+      <div class="footer-bas">
+        <p>© 2025 SkinShop — Tous droits réservés</p>
+      </div>
+    </footer>
 
   </div>
 </template>
@@ -73,7 +87,6 @@ import { useCartStore } from '@/stores/cart'
 
 export default {
   name: 'HomePage',
-
   components: { ProductCard },
 
   data() {
@@ -87,9 +100,7 @@ export default {
   methods: {
     ajouterAuPanier(produit) {
       this.cartStore.addToCart(produit)
-      console.log('Produit ajouté :', produit.title)
     },
-
     scrollVersListe() {
       this.$refs.listeRef.scrollIntoView({ behavior: 'smooth' })
     }
@@ -104,7 +115,6 @@ export default {
   display: flex;
   gap: 40px;
   align-items: center;
-  padding: 40px 0;
   background-color: #f0eeff;
   border-radius: 12px;
   padding: 40px;
@@ -131,6 +141,7 @@ export default {
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 .btn-principal:hover {
@@ -140,6 +151,7 @@ export default {
 .hero-image img {
   width: 350px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 /* --- Avantages --- */
@@ -157,6 +169,11 @@ export default {
   padding: 20px;
   border-radius: 10px;
   border: 1px solid #eee;
+  transition: box-shadow 0.3s;
+}
+
+.avantage:hover {
+  box-shadow: 0 4px 12px rgba(108, 92, 231, 0.15);
 }
 
 .icone {
@@ -192,59 +209,59 @@ export default {
   gap: 25px;
 }
 
-/* --- Newsletter --- */
-.newsletter {
+/* --- Footer --- */
+.footer {
   background-color: #6c5ce7;
   color: white;
   padding: 40px;
   border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+.footer-contenu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.footer-col h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: #c9b8ff;
+}
+
+.footer-col p {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+.footer-bas {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
   text-align: center;
-}
-
-.newsletter h2 {
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-}
-
-.newsletter p {
-  margin-bottom: 20px;
-  font-size: 1rem;
-}
-
-.newsletter-form {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.newsletter-form input {
-  padding: 10px 15px;
-  border-radius: 6px;
-  border: none;
-  font-size: 1rem;
-  width: 250px;
-}
-
-.newsletter-form button {
-  padding: 10px 20px;
-  background-color: white;
-  color: #6c5ce7;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
+  font-size: 0.85rem;
+  opacity: 0.5;
 }
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
+    text-align: center;
   }
 
   .hero-image img {
     width: 100%;
+  }
+
+  .hero-texte h1 {
+    font-size: 1.8rem;
   }
 
   .avantages {
@@ -254,11 +271,21 @@ export default {
   .avantage {
     flex: 1 1 calc(50% - 10px);
   }
+
+  .footer-contenu {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 480px) {
   .avantage {
     flex: 1 1 100%;
   }
+
+  .hero-texte h1 {
+    font-size: 1.5rem;
+  }
 }
+
 </style>

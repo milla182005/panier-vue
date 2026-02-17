@@ -4,7 +4,7 @@
     "title": "Crème hydratante visage",
     "price": 19.99,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400",
+    "image": "/images/creme-hydratante.png",
     "description": "Hydrate la peau en profondeur avec une formule légère et non grasse."
   },
   {
@@ -12,7 +12,7 @@
     "title": "Sérum vitamine C",
     "price": 24.50,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400",
+    "image": "/images/serum-vitamine-c.png",
     "description": "Redonne de l'éclat au teint et combat les signes de fatigue."
   },
   {
@@ -20,7 +20,7 @@
     "title": "Masque purifiant",
     "price": 14.90,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400",
+    "image": "/images/masque-purifiant.png",
     "description": "Nettoie les pores en douceur et régule l'excès de sébum."
   },
   {
@@ -28,7 +28,7 @@
     "title": "Nettoyant visage doux",
     "price": 12.00,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400",
+    "image": "/images/nettoyant-doux.png",
     "description": "Élimine les impuretés sans agresser la peau sensible."
   },
   {
@@ -36,7 +36,7 @@
     "title": "Crème de nuit réparatrice",
     "price": 27.99,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1571875257727-256c39da42af?w=400",
+    "image": "/images/creme-nuit.png",
     "description": "Régénère la peau pendant la nuit pour un réveil éclatant."
   },
   {
@@ -44,7 +44,7 @@
     "title": "Contour des yeux",
     "price": 18.50,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=400",
+    "image": "/images/contour-yeux.png",
     "description": "Réduit les cernes et les poches pour un regard reposé."
   },
   {
@@ -52,7 +52,7 @@
     "title": "Eau micellaire",
     "price": 10.90,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1556228841-a5c5ff9b1d3e?w=400",
+    "image": "/images/eau-micellaire.png",
     "description": "Démaquille et nettoie en douceur sans rinçage."
   },
   {
@@ -60,7 +60,7 @@
     "title": "Gommage visage",
     "price": 13.99,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1620736451739-2657578f49de?w=400",
+    "image": "/images/gommage-visage.png",
     "description": "Exfolie et affine le grain de peau pour un teint lumineux."
   },
   {
@@ -68,7 +68,7 @@
     "title": "Huile visage nourrissante",
     "price": 21.00,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=400",
+    "image": "/images/huile-nourrissante.png",
     "description": "Nourrit intensément la peau sèche et déshydratée."
   },
   {
@@ -76,7 +76,7 @@
     "title": "Crème solaire SPF50",
     "price": 17.90,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1526758097130-bab247274f58?w=400",
+    "image": "/images/creme-solaire.png",
     "description": "Protège contre les UV et prévient le vieillissement cutané."
   },
   {
@@ -84,7 +84,7 @@
     "title": "Masque hydratant",
     "price": 15.50,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400",
+    "image": "/images/masque-hydratant.png",
     "description": "Hydratation intense immédiate pour une peau repulpée."
   },
   {
@@ -92,7 +92,7 @@
     "title": "Tonique apaisant",
     "price": 11.99,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400",
+    "image": "/images/tonique-apaisant.png",
     "description": "Apaise et rafraîchit la peau après le nettoyage."
   },
   {
@@ -100,7 +100,7 @@
     "title": "Crème anti-âge",
     "price": 34.90,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400",
+    "image": "/images/creme-anti-age.png",
     "description": "Lisse les rides et raffermit la peau mature."
   },
   {
@@ -108,7 +108,7 @@
     "title": "Sérum acide hyaluronique",
     "price": 22.99,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1620916297192-0c6d99fc479b?w=400",
+    "image": "/images/serum-hyaluronique.png",
     "description": "Repulpe la peau et comble les rides déshydratées."
   },
   {
@@ -116,7 +116,7 @@
     "title": "Crème mains réparatrice",
     "price": 8.90,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1585652757173-57de5e9fab42?w=400",
+    "image": "/images/creme-mains.png",
     "description": "Répare les mains sèches et abîmées rapidement."
   },
   {
@@ -124,7 +124,7 @@
     "title": "Baume à lèvres",
     "price": 4.99,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1586495777744-4e6232bf2f9e?w=400",
+    "image": "/images/baume-levres.png",
     "description": "Hydrate et protège les lèvres du dessèchement."
   },
   {
@@ -132,7 +132,7 @@
     "title": "Lotion purifiante",
     "price": 12.50,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400",
+    "image": "/images/lotion-purifiante.png",
     "description": "Équilibre les peaux mixtes et resserre les pores."
   },
   {
@@ -140,7 +140,7 @@
     "title": "Masque charbon",
     "price": 16.00,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1615397349754-cfa2066a298e?w=400",
+    "image": "/images/masque-charbon.png",
     "description": "Purifie en profondeur et élimine les points noirs."
   },
   {
@@ -148,7 +148,7 @@
     "title": "Crème corps hydratante",
     "price": 18.90,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400",
+    "image": "/images/creme-corps.png",
     "description": "Hydratation longue durée pour une peau douce."
   },
   {
@@ -156,7 +156,7 @@
     "title": "Spray visage rafraîchissant",
     "price": 9.99,
     "category": "skincare",
-    "image": "https://images.unsplash.com/photo-1576426863848-c21f53c60b19?w=400",
+    "image": "/images/spray-rafraichissant.png",
     "description": "Rafraîchit instantanément et fixe le maquillage."
   }
 ]
