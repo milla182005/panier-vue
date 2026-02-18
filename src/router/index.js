@@ -19,14 +19,18 @@ const routes = [
     path: '/contact',
     name: 'contact',
     component: ContactPage
-  }
+  },
+  {
+  path: '/favoris',
+  component: () => import('@/views/FavoritesPage.vue')
+}
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
 
-  // 🔹 Revenir en haut de la page à chaque changement de route
+  // Revenir en haut de la page à chaque changement de route
   scrollBehavior() {
     return { top: 0 }
   }

@@ -3,15 +3,24 @@
     <div class="nav-container">
       <!-- Logo -->
       <router-link to="/" class="brand">
-        🧴 SkinShop
+        SkinShop
       </router-link>
 
       <!-- Liens de navigation -->
       <div class="nav-links">
         <router-link to="/" class="nav-link">Accueil</router-link>
 
+        <!-- Favoris avec badge -->
+        <router-link to="/favoris" class="nav-link">
+          Favoris
+          <span v-if="favoritesStore.totalFavoris > 0" class="badge">
+            {{ favoritesStore.totalFavoris }}
+          </span>
+        </router-link>
+
+        <!-- Panier avec badge -->
         <router-link to="/panier" class="nav-link">
-          🛒 Panier
+          Panier
           <span v-if="cartStore.totalItems > 0" class="badge">
             {{ cartStore.totalItems }}
           </span>
@@ -25,13 +34,15 @@
 
 <script>
 import { useCartStore } from '@/stores/cart'
+import { useFavoritesStore } from '@/stores/favorites'
 
 export default {
   name: 'NavBar',
 
   data() {
     return {
-      cartStore: useCartStore()
+      cartStore: useCartStore(),
+      favoritesStore: useFavoritesStore()
     }
   }
 }
@@ -80,7 +91,7 @@ export default {
   font-weight: bold;
 }
 
-/* Badge du panier */
+/* Badge panier et favoris */
 .badge {
   background-color: #ff4757;
   color: white;

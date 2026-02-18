@@ -1,9 +1,22 @@
 <template>
   <div class="carte-produit">
-    
+
     <!-- Image -->
     <div class="image-produit">
-      <img :src="product.image" :alt="product.title" />
+      <img
+        :src="product.image"
+        :alt="product.title"
+        @error="imageErreur"
+      />
+
+      <!-- Bouton favori -->
+      <button
+        @click="toggleFavori"
+        class="btn-favori"
+        :title="estEnFavori ? 'Retirer des favoris' : 'Ajouter aux favoris'"
+      >
+        {{ estEnFavori ? '❤️' : '🤍' }}
+      </button>
     </div>
 
     <!-- Infos -->
@@ -23,6 +36,8 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useFavoritesStore } from '@/stores/favorites'
 
 const props = defineProps({
   product: {
@@ -32,6 +47,23 @@ const props = defineProps({
 })
 
 defineEmits(['add'])
+
+const favoritesStore = useFavoritesStore()
+
+// Vérifie si ce produit est en favori
+const estEnFavori = computed(() => {
+  return favoritesStore.estEnFavori(props.product.id)
+})
+
+// Ajouter ou retirer des favoris
+function toggleFavori() {
+  favoritesStore.toggleFavori(props.product)
+}
+
+// Si l'image ne charge pas, on met une image de remplacement
+function imageErreur(event) {
+  event.target.src = 'https://placehold.co/400x220?text=Image+non+disponible'
+}
 
 // Formater le prix en euros
 function formatPrix(prix) {
@@ -67,6 +99,27 @@ function formatPrix(prix) {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Bouton favori */
+.btn-favori {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-favori:hover {
+  background-color: #f5f5f5;
 }
 
 /* Infos */

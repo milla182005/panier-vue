@@ -43,7 +43,16 @@
     <!-- Liste des produits -->
     <section ref="listeRef" class="liste-produits">
       <h2>Nos produits</h2>
+
       <p v-if="chargement">Chargement...</p>
+
+      <!-- Erreur de chargement -->
+      <p v-else-if="erreur" class="message-erreur">{{ erreur }}</p>
+
+      <!-- Aucun produit -->
+      <p v-else-if="produits.length === 0" class="message-vide">Aucun produit disponible.</p>
+
+      <!-- Produits -->
       <div v-else class="grille">
         <ProductCard
           v-for="produit in produits"
@@ -81,9 +90,9 @@
 </template>
 
 <script>
-import productsData from '@/data/products.json'
 import ProductCard from '@/components/ProductCard.vue'
 import { useCartStore } from '@/stores/cart'
+import { useProductsStore } from '@/stores/products'
 
 export default {
   name: 'HomePage',
@@ -91,9 +100,26 @@ export default {
 
   data() {
     return {
-      produits: productsData,
-      chargement: false,
-      cartStore: useCartStore()
+      cartStore: useCartStore(),
+      productsStore: useProductsStore()
+    }
+  },
+
+  // On charge les produits quand la page s'ouvre
+  mounted() {
+    this.productsStore.chargerProduits()
+  },
+
+  // On lit les données depuis le store
+  computed: {
+    produits() {
+      return this.productsStore.produits
+    },
+    chargement() {
+      return this.productsStore.chargement
+    },
+    erreur() {
+      return this.productsStore.erreur
     }
   },
 
@@ -207,6 +233,18 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 25px;
+}
+
+.message-erreur {
+  text-align: center;
+  color: red;
+  padding: 20px;
+}
+
+.message-vide {
+  text-align: center;
+  color: #888;
+  padding: 20px;
 }
 
 /* --- Footer --- */

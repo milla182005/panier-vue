@@ -1,10 +1,9 @@
 <template>
   <div class="page-panier">
-    <h1>🛒 Mon Panier</h1>
+    <h1>Mon Panier</h1>
 
     <!-- Panier vide -->
     <div v-if="cartStore.items.length === 0" class="panier-vide">
-      <p>🛍️</p>
       <h2>Votre panier est vide</h2>
       <p>Ajoutez des produits pour commencer vos achats</p>
       <router-link to="/" class="btn-retour">Continuer mes achats</router-link>
@@ -20,12 +19,22 @@
           :key="item.id"
           class="article"
         >
-          <img :src="item.image" :alt="item.title" class="article-image" />
+          <!-- Image avec fallback si elle ne charge pas -->
+          <img
+            :src="item.image"
+            :alt="item.title"
+            class="article-image"
+            @error="imageErreur"
+          />
 
           <div class="article-info">
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.description }}</p>
-            <p class="article-prix">{{ item.price.toFixed(2) }} €</p>
+            <!-- Titre avec fallback si manquant -->
+            <h3>{{ item.title || 'Produit sans nom' }}</h3>
+            <p>{{ item.description || 'Aucune description disponible.' }}</p>
+            <!-- Prix avec vérification -->
+            <p class="article-prix">
+              {{ item.price ? item.price.toFixed(2) + ' €' : 'Prix non disponible' }}
+            </p>
           </div>
 
           <!-- Quantité -->
@@ -90,6 +99,13 @@ export default {
     return {
       cartStore: useCartStore()
     }
+  },
+
+  methods: {
+    // Si l'image du produit ne charge pas, on met une image de remplacement
+    imageErreur(event) {
+      event.target.src = 'https://placehold.co/90x90?text=?'
+    }
   }
 }
 </script>
@@ -110,11 +126,6 @@ h1 {
 .panier-vide {
   text-align: center;
   padding: 60px 20px;
-}
-
-.panier-vide p:first-child {
-  font-size: 4rem;
-  margin-bottom: 15px;
 }
 
 .panier-vide h2 {
